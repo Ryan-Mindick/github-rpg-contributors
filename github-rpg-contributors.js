@@ -20,25 +20,36 @@ export class GithubRpgContributors extends DDDSuper(I18NMixin(LitElement)) {
 
   constructor() {
     super();
-    this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/github-rpg-contributors.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
+    this.data = {};
+    this.url = ""
+    this.loading = false;
+  }
+
+  updated(changedProperties) {
+    super.updated(changedProperties);
+    if (changedProperties.has("url")) {
+      this.data = this.getData(this.url);
+    }
+  }
+
+  getData(url) {
+    this.loading = true;
+    return fetch(`https://api.github.com/repos/haxtheweb/webcomponents/contributors`)
+      .then((response) => response.json())
+      .then((data) => {
+        this.data = data.data;
+        this.loading = false;
+        console.log(this.data);
+        return data;
+      });
   }
 
   // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
+      data: { type: Object },
+      url: { type: String },
       title: { type: String },
     };
   }

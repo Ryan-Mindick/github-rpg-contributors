@@ -59,7 +59,7 @@ export class GithubRpgContributors extends DDDSuper(I18NMixin(LitElement)) {
     return [super.styles,
     css`
       :host {
-        display: block;
+        display: inline-block;
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
@@ -70,6 +70,13 @@ export class GithubRpgContributors extends DDDSuper(I18NMixin(LitElement)) {
       }
       h3 span {
         font-size: var(--github-rpg-contributors-label-font-size, var(--ddd-font-size-s));
+      }
+
+      button {
+        padding: 2px;
+        border-radius: 10px;
+        width: 75px;
+        font-family: Comic Sans MS;
       }
     `];
   }

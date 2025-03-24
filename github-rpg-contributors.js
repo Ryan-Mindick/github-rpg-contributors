@@ -72,6 +72,8 @@ export class GithubRpgContributors extends DDDSuper(I18NMixin(LitElement)) {
         display: flex;
         flex-direction: column;
         margin: var(--ddd-spacing-3);
+        padding: var(--ddd-spacing-3);
+        text-align: center;
       }      
       h3 {
         display: inline-block

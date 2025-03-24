@@ -73,11 +73,6 @@ export class GithubRpgContributors extends DDDSuper(I18NMixin(LitElement)) {
         flex-direction: column;
         margin: var(--ddd-spacing-3);
       }      
-      .character {
-        padding: var(--ddd-spacing-3);
-        text-align: center;
-        min-width: 150px;
-      }
       h3 {
         display: inline-block
       }
@@ -114,7 +109,7 @@ export class GithubRpgContributors extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
     <div class="header">
-      <h3>GitHub Repository: <a href="https://github.com/${this.org}/${this.repo}"></a></h3>
+      <h3>GitHub Repository: <a href="https://github.com/${this.org}/${this.repo}">${this.repo}</a></h3>
     </div>
     <slot></slot>
     <div class="new-wrapper">

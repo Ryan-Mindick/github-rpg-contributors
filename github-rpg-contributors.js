@@ -114,7 +114,7 @@ export class GithubRpgContributors extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
     <div class="header">
-      <h3>GitHub Repo: <a href="https://github.com/${this.org}/${this.repo}">${this.org}/${this.repo}</a></h3>
+      <h3>GitHub Repository: <a href="https://github.com/${this.org}/${this.repo}"></a></h3>
     </div>
     <slot></slot>
     <div class="new-wrapper">
@@ -122,7 +122,7 @@ export class GithubRpgContributors extends DDDSuper(I18NMixin(LitElement)) {
         html`
         <div class="character">
         <rpg-character  seed="${item.login}"></rpg-character>
-          <div class="details">
+          <div class="character">
           <a href=https://github.com/${item.login}>${item.login}</a>
           Contributions: ${item.contributions}
           </div>
